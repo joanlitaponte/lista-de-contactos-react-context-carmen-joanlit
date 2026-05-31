@@ -8,8 +8,30 @@ const Contacts = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
 
+    const createAgenda = async () => {
+
+        try {
+
+            const response = await fetch(
+                "https://playground.4geeks.com/contact/agendas/agenda_carmen",
+                {
+                    method: "POST"
+                }
+            );
+
+            const data = await response.json();
+
+            console.log(data);
+
+        } catch (error) {
+
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        createAgenda();
         getContacts();
 
     }, []);
